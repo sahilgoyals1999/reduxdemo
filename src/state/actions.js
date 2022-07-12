@@ -50,8 +50,7 @@ export const getData = (url) => {
         dispatchAction(fetchDataInit());
         try {
             let result = axios.get(url);
-            console.log(result);
-            dispatchAction(fetchDataSuccess(result.data));
+            dispatchAction(fetchDataSuccess(result));
         }
         catch(ex) {
             dispatchAction(fetchDataFailure());

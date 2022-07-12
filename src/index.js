@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import {createStore, applyMiddleware} from 'redux';
 import reducer from "./state"
+import { customLog } from './middleware/CustomLog';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk, logger, customLog));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
